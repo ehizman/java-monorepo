@@ -2,7 +2,7 @@ VERSION 0.6
 
 build:
     BUILD ./service1+build
-    BUILD .service1+build
+    BUILD ./service2+build
 
 all-unit-test:
     BUILD ./service1+unit-test
