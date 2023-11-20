@@ -1,0 +1,18 @@
+VERSION 0.7
+FROM openjdk:17-jdk-alpine
+RUN apk add --update --no-cache maven
+WORKDIR /java-example
+
+build:
+    COPY pom.xml ./
+    COPY src src
+    RUN mvn clean install
+    RUN mvn package
+    SAVE ARTIFACT build/install/monorepo/bin /bin
+    SAVE ARTIFACT build/install/monorepo/lib /lib
+
+docker:
+    COPY +build/bin bin
+    COPY +build/lib lib
+    ENTRYPOINT ["/java-example/bin/monorepo"]
+    SAVE IMAGE service1:latest

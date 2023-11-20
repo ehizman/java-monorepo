@@ -1,0 +1,14 @@
+name: service1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - services/service1/**
+      - .github/workflows/service1.yml
+
+jobs:
+  run:
+    uses: ./.github/workflows/service-workflow.yml
+    with:
+      service: service1
