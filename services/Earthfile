@@ -1,4 +1,5 @@
 VERSION 0.6
+FROM ../
 
 build:
     COPY pom.xml ./
