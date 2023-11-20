@@ -1,0 +1,13 @@
+VERSION 0.6
+
+build:
+    BUILD ./service1+build
+    BUILD .service1+build
+
+all-unit-test:
+    BUILD ./service1+unit-test
+    BUILD ./service2+unit-test
+
+all-docker:
+    BUILD .service1+docker
+    BUILD .service2+docker
