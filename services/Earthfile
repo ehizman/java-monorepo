@@ -1,6 +1,7 @@
 VERSION 0.6
 
 build:
+    COPY pom.xml ./
     BUILD ./service1+build
     BUILD ./service2+build
 
