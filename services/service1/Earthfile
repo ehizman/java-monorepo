@@ -4,7 +4,6 @@ deps:
     FROM openjdk:17-jdk-alpine
     WORKDIR /services/service1
     COPY ../+deps .
-    WORKDIR /service1
     COPY ./pom.xml /services/service1
     RUN mvn clean install
     RUN mvn compile
