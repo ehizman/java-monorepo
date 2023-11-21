@@ -9,7 +9,6 @@ deps:
     RUN mvn clean install
     RUN mvn compile
     RUN mvn package
-    COPY
     RUN apk add --update --no-cache maven
     WORKDIR /java-example
 
