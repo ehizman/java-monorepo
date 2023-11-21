@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - services/service2/**
+      - libraries/metrics/**
+      - libraries/security/**
       - .github/workflows/service2.yml
 
 jobs:
