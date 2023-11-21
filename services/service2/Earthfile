@@ -1,18 +1,27 @@
 VERSION 0.7
-FROM openjdk:17-jdk-alpine
-RUN apk add --update --no-cache maven
-WORKDIR /monorepo
+
+deps:
+    FROM openjdk:17-jdk-alpine
+    WORKDIR /services/service1
+    COPY ../+deps .
+    WORKDIR /service2
+    COPY ./pom.xml /services/service2
+    RUN mvn clean install
+    RUN mvn compile
+    RUN mvn package
+    COPY
+    RUN apk add --update --no-cache maven
+    WORKDIR /java-example
 
 build:
-    COPY pom.xml ../pom.xml ./
+    COPY pom.xml ./
     COPY src src
     RUN mvn clean install
     RUN mvn package
-    SAVE ARTIFACT build/install/monorepo/bin /bin
-    SAVE ARTIFACT build/install/monorepo/lib /lib
-
+    SAVE ARTIFACT ./target/app.jar app.jar
 docker:
-    COPY +build/bin bin
-    COPY +build/lib lib
-    ENTRYPOINT ["/monorepo/bin/monorepo"]
+    COPY +build/app.jar app.jar
+    RUN sh -c 'touch /app.jar'
+    ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+
     SAVE IMAGE service2:latest

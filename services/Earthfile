@@ -1,5 +1,15 @@
 VERSION 0.6
 
+deps:
+    FROM openjdk:17-jdk-alpine
+    RUN apk add --update --no-cache maven
+    COPY ../+deps .
+    WORKDIR /services
+    COPY ./pom.xml /services/
+    RUN mvn clean install
+    RUN mvn compile
+    RUN mvn package
+
 build:
     BUILD ./service1+build
     BUILD ./service2+build
