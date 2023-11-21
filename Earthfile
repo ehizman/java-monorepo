@@ -1,6 +1,5 @@
 VERSION 0.7
 
-
 deps:
     FROM openjdk:17-jdk-alpine
     RUN apk add --update --no-cache maven
