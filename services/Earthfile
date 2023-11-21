@@ -2,6 +2,7 @@ VERSION 0.6
 
 deps:
     FROM openjdk:17-jdk-alpine
+    FROM maven:3.5.2-jdk-8-alpine
     RUN apk add --update --no-cache maven
     COPY ../+deps .
     WORKDIR /services
