@@ -14,6 +14,7 @@ deps:
     WORKDIR /java-example
 
 build:
+    FROM +deps
     COPY pom.xml ./
     COPY src src
     RUN mvn clean install
