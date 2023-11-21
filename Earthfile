@@ -1,20 +1,24 @@
 VERSION 0.7
+FROM openjdk:8-jdk-alpine
 
-deps:
-    FROM maven:3.5.2-jdk-8-alpine
-    FROM openjdk:17-jdk-alpine
-    RUN apk add --update --no-cache maven
-    COPY ./pom.xml .
-    RUN mvn clean install
-    RUN mvn compile
-    RUN mvn package
+# Install Maven
+RUN apk add --update --no-cache maven
+
+# Set the Maven home directory
+ENV MAVEN_HOME /usr/share/maven
+
+# Add Maven binaries to the system PATH
+ENV PATH $MAVEN_HOME/bin:$PATH
+
+# Verify Maven installation
+RUN mvn --version
+
+# Set the working directory
+WORKDIR /app
+
 
 build:
-    BUILD ./services+build
-
-all-unit-test:
-    BUILD ./libs+unit-test
-    BUILD ./services+unit-test
-
-all-docker:
-    BUILD ./services+docker
+    COPY libraries libraries
+    COPY services services
+    RUN mvn clean install
+    RUN mvn package
