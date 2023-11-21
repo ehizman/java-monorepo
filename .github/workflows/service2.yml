@@ -2,11 +2,10 @@ name: service2
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - services/service2/**
-      - libraries/metrics/**
-      - libraries/security/**
+      - libs/metrics/**
       - .github/workflows/service2.yml
 
 jobs:

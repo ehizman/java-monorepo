@@ -2,15 +2,12 @@ name: service1
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - services/service1/**
-      - libraries/metrics/**
-      - libraries/security/**
+      - libs/metrics/**
+      - libs/security/**
       - .github/workflows/service1.yml
-
-
-      
 
 jobs:
   run:
