@@ -3,7 +3,7 @@ VERSION 0.7
 deps:
     FROM openjdk:17-jdk-alpine
     WORKDIR /services/service2
-    COPY ../+deps .
+    COPY ../../services/+deps .
     COPY ./pom.xml /services/service2
     RUN mvn clean install
     RUN mvn compile
