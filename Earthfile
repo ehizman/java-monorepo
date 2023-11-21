@@ -1,6 +1,7 @@
 VERSION 0.7
 
 deps:
+    FROM maven:3.5.2-jdk-8-alpine
     FROM openjdk:17-jdk-alpine
     RUN apk add --update --no-cache maven
     COPY ./pom.xml .
