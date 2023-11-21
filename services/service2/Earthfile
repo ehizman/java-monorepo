@@ -19,6 +19,7 @@ build:
     RUN mvn clean install
     RUN mvn package
     SAVE ARTIFACT ./target/app.jar app.jar
+
 docker:
     COPY +build/app.jar app.jar
     RUN sh -c 'touch /app.jar'
