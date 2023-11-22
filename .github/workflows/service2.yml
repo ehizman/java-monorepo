@@ -3,10 +3,12 @@ name: service2
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [main]
     paths:
-      - services/service2/**
-      - libs/metrics/**
-      - .github/workflows/service2.yml
+    - services/service2/**
+    - libs/metrics/**
+    - .github/workflows/service2.yml
 
 jobs:
   run:
