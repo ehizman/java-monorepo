@@ -1,6 +1,7 @@
 VERSION 0.7
+WORKDIR /app/services
 
 docker:
-    FROM ../../+docker
+    COPY ../../+docker /service1
     ENTRYPOINT ["app/services/service1"]
     SAVE IMAGE service1:latest
