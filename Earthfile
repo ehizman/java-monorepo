@@ -16,10 +16,15 @@ RUN mvn --version
 # Set the working directory
 WORKDIR /app
 
-
 build:
     COPY pom.xml ./pom.xml
     COPY libraries libraries
     COPY services services
     RUN mvn clean install
     RUN mvn package
+    SAVE ARTIFACT services/service1/target/**.jar /service1
+    SAVE ARTIFACT services/service2/target/**.jar /service2
+
+docker:
+    BUILD ./services/service1+docker
+    BUILD ./services/service2+docker
