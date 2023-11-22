@@ -32,3 +32,5 @@ jobs:
         run: earthly --version
       - name: Run build
         run: earthly --push +build
+      - name: Run docker
+        run: earthly --push docker
