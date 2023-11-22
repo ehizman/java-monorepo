@@ -2,5 +2,5 @@ VERSION 0.7
 
 docker:
     FROM ../../+docker
-    ENTRYPOINT ["app/services"]
+    ENTRYPOINT ["app/services/service1"]
     SAVE IMAGE service1:latest
