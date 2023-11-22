@@ -1,5 +1,5 @@
 VERSION 0.7
-FROM openjdk:8-jdk-alpine
+FROM openjdk:17-jdk-alpine
 
 # Install Maven
 RUN apk add --update --no-cache maven
