@@ -18,8 +18,8 @@ WORKDIR /app
 
 build:
     COPY pom.xml ./pom.xml
-    COPY ../libraries libraries
-    COPY src src
+    COPY ../libraries ./libraries
+    COPY src ./src
     RUN mvn clean install
     RUN mvn package
     SAVE ARTIFACT services/service1/target/**.jar services/service-one
