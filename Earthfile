@@ -26,5 +26,10 @@ build:
     SAVE ARTIFACT services/service2/target/**.jar services/service-two
 
 docker:
-    BUILD ./services/service1+docker
-    BUILD ./services/service2+docker
+     COPY +build/service/service-one service-one
+     ENTRYPOINT ["/app/service-one"]
+     SAVE IMAGE service1:latest
+
+     COPY +build/service/service-two service-two
+     ENTRYPOINT ["/app/service-two"]
+     SAVE IMAGE service2:latest
