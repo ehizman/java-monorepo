@@ -1,5 +1,5 @@
 VERSION 0.7
-FROM ../../+docker as prev
+FROM ../../+docker AS prev
 WORKDIR /app/services
 
 
