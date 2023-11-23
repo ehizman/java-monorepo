@@ -18,7 +18,7 @@ WORKDIR /app
 
 build:
     COPY pom.xml ./pom.xml
-    COPY ../../libraries ./libraries
+    COPY ../../libraries ./libs
     COPY src ./src
     RUN mvn clean install
     RUN mvn package
