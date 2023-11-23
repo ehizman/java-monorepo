@@ -1,9 +1,6 @@
 VERSION 0.7
-IMPORT ../../+docker AS prev
-WORKDIR /app/services
-
-
 docker:
+    BUILD ../services/service2
     COPY prev/service2 ./service2
     ENTRYPOINT ["app/services/service2"]
     SAVE IMAGE service2:latest
