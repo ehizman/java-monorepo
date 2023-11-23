@@ -22,8 +22,8 @@ build:
     COPY services services
     RUN mvn clean install
     RUN mvn package
-    SAVE ARTIFACT services/service1/target/**.jar /service1
-    SAVE ARTIFACT services/service2/target/**.jar /service2
+    SAVE ARTIFACT services/service1/target/**.jar services/service-one
+    SAVE ARTIFACT services/service2/target/**.jar services/service-two
 
 docker:
     BUILD ./services/service1+docker

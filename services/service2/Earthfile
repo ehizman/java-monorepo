@@ -1,6 +1,5 @@
 VERSION 0.7
 docker:
-    BUILD ../services/service2
-    COPY prev/service2 ./service2
-    ENTRYPOINT ["app/services/service2"]
+    BUILD ../../+docker
+    ENTRYPOINT ["app/services/service-two"]
     SAVE IMAGE service2:latest
