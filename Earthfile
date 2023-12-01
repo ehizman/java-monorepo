@@ -22,6 +22,7 @@ build:
     COPY services services
     RUN mvn clean install
     RUN mvn package
+
     SAVE ARTIFACT services/service1/target/**.jar AS LOCAL services/service-one
     SAVE ARTIFACT services/service2/target/**.jar AS LOCAL services/service-two
 
