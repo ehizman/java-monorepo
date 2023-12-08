@@ -26,11 +26,3 @@ build:
     SAVE ARTIFACT services/service1/target/**.jar AS LOCAL services/service-one/
     SAVE ARTIFACT services/service2/target/**.jar AS LOCAL services/service-two/
 
-docker:
-     COPY +build service-one
-     ENTRYPOINT ["/app/service-one"]
-     SAVE IMAGE service1:latest
-
-     COPY +build service-two
-     ENTRYPOINT ["/app/service-two"]
-     SAVE IMAGE service2:latest
