@@ -26,6 +26,13 @@ build:
     SAVE ARTIFACT services/service1/target/**.jar /services/one
     SAVE ARTIFACT services/service2/target/**.jar /services/two
 
+test:
+    COPY pom.xml ./pom.xml
+    COPY libraries libraries
+    COPY services services
+    RUN mvn clean install
+    RUN mvn test
+
 docker:
     COPY +build/services/one .
     ENTRYPOINT ["java", "-jar", "service1-app.jar"]
