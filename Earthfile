@@ -36,10 +36,10 @@ test:
 docker:
     COPY +build/services/one .
     ENTRYPOINT ["java", "-jar", "service1-app.jar"]
-    SAVE IMAGE --push service-one:latest
+    SAVE IMAGE --push ehizman/service-one:latest
 
 
     COPY +build/services/two .
     ENTRYPOINT ["java", "-jar", "service2-app.jar"]
-    SAVE IMAGE --push service-two:latest
+    SAVE IMAGE --push ehizman/service-two:latest
 
