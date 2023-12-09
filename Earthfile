@@ -38,6 +38,7 @@ docker:
     ENTRYPOINT ["java", "-jar", "service1-app.jar"]
     SAVE IMAGE --push service-one:latest
 
+
     COPY +build/services/two .
     ENTRYPOINT ["java", "-jar", "service2-app.jar"]
     SAVE IMAGE --push service-two:latest
