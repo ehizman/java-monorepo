@@ -35,8 +35,8 @@ jobs:
       - name: Run docker
         run: earthly --push +docker
       - name: Tag Docker Image
-        run: docker tag semaphore-demo-earthly $DOCKER_USERNAME/semaphore-demo-earthly
+        run: docker tag semaphore-demo-earthly $DOCKER_USERNAME/demo_docker
       - name : push Docker Image
-        run: docker push $DOCKER_USERNAME/semaphore-demo-earthly
+        run: docker push $DOCKER_USERNAMe/demo_docker
       - name: Run test
         run: earthly --push +test
